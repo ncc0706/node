@@ -7,9 +7,7 @@ function start(route, handler){
   
   response.writeHead(200, {'Content-Type': 'text/html'});
   //调用route
-  var content = route(handler, pathname);
-  response.write(content);
-  response.end();
+  route(handler, pathname, response);
  }
  
  http.createServer(onRequest).listen(8080);
