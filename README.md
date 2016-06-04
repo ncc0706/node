@@ -9,6 +9,8 @@ http.createServer();
 
 **基于事件驱动的回调**
 
+
+** 模拟 IO 阻塞 ** 
 ``` javascript
 
 function start(){
