@@ -16,6 +16,7 @@ http.createServer(function(request, response){
 }).listen(8080);
 */
 
+/*
 function onRequest(request, response){
   response.writeHead(200, {'Content-Type': 'text/html'});
   response.write('<h3>Hello World</h3>');
@@ -24,6 +25,17 @@ function onRequest(request, response){
 }
 
 http.createServer(onRequest).listen(8080);
+*/
 
+
+function onRequest(request, response){
+  console.log("Request	received.");
+  response.writeHead(200, {'Content-Type': 'text/html'});
+  response.write('<h3>Hello World</h3>');
+  response.write('<h4>nodemon server.js</h4>');
+  response.end();
+}
+http.createServer(onRequest).listen(8080);
+console.log('Server has started');
 
 
