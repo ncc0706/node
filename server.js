@@ -5,12 +5,10 @@ function start(route, handler){
  function onRequest(request, response){
   var pathname = url.parse(request.url).pathname;
   
-  //调用route
-  route(handler, pathname);
-
   response.writeHead(200, {'Content-Type': 'text/html'});
-  response.write('<h3>Hello World</h3>');
-  response.write('<h4>nodemon server.js</h4>');
+  //调用route
+  var content = route(handler, pathname);
+  response.write(content);
   response.end();
  }
  
