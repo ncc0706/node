@@ -3,11 +3,21 @@ var url  = require('url');
 
 function start(route, handler){
  function onRequest(request, response){
+  var postData = ""; 
   var pathname = url.parse(request.url).pathname;
+   
+  request.setEncoding('utf-8'); 
   
-  response.writeHead(200, {'Content-Type': 'text/html'});
-  //调用route
-  route(handler, pathname, response);
+  request.addListener('data', function(postDataChunk){
+   postData += postDataChunk;
+   console.log(postDataChunk);
+  });
+  
+  request.addListener('end', function(){
+    
+    route(handler, pathname, response, postData);
+  });
+
  }
  
  http.createServer(onRequest).listen(8080);
