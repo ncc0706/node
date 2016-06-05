@@ -33,3 +33,12 @@ exports.start = start;
 exports.upload = upload;
 
 ```
+
+## fromidabel  图片上传
+
+npm install formidable --save
+
+
+
+
+
